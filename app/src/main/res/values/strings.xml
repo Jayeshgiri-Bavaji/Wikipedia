@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Wikipedia</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_explore">Explore</string>
+    <string name="title_favourite">Favourite</string>
+    <string name="title_history">History</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_wikipedia">Search Wikipedia</string>
+</resources>
