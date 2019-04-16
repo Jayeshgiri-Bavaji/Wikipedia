@@ -8,7 +8,7 @@ package com.jbavaji.wikipedia.model
  */
 class WikiThumbnail {
 
-    val  source:String ? = null
-    val width : Int = 0
-    val height : Int = 0
+    val source: String? = null
+    val width: Int = 0
+    val height: Int = 0
 }

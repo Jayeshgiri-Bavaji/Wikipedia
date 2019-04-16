@@ -11,14 +11,29 @@ object Urls {
     val BaseUrl = "https://en.wikipedia.org/w/api.php"
 
     fun getSearchUrl(term: String, skip: Int, take: Int): String {
+        /* return BaseUrl + "?action=query" +
+                 "&formatversion=2" +
+                 "&generator=prefixsearch" +
+                 "&term=$term" +
+                 "&gpslimit=$take" +
+                 "&gpsoffset=$skip" +
+                 "&prop=pageimages|info" +
+                 "piprop=thumbnail|url" +
+                 "&pithumbsize=200" +
+                 "&pilimit=$take" +
+                 "&wbptterms=description" +
+                 "&format=json" +
+                 "&inprop=url"*/
+
+
         return BaseUrl + "?action=query" +
                 "&formatversion=2" +
                 "&generator=prefixsearch" +
-                "&term=$term" +
+                "&gpssearch=$term" +
                 "&gpslimit=$take" +
-                "&gpsoffser=$skip" +
+                "&gpsnamespace=$skip" +
                 "&prop=pageimages|info" +
-                "piprop=thumbnail|url" +
+                "&piprop=thumbnail|url" +
                 "&pithumbsize=200" +
                 "&pilimit=$take" +
                 "&wbptterms=description" +
@@ -27,14 +42,28 @@ object Urls {
     }
 
     fun getRandomUrl(take: Int): String {
+        /* return BaseUrl + "?action=query" +
+                 "&format=json" +
+                 "&formatversion=2" +
+                 "&generator=random" +
+                 "&grnnamespace=0" +
+                 "&prop=pageimages|info" +
+                 "&pilimit=$take" +
+                 "&inprop=url" +
+                 "&pithumbsize=200"*/
+
+
         return BaseUrl + "?action=query" +
-                "&format=json" +
                 "&formatversion=2" +
                 "&generator=random" +
+                "&grnlimit=$take" +
                 "&grnnamespace=0" +
                 "&prop=pageimages|info" +
+                "&pithumbsize=200" +
                 "&pilimit=$take" +
-                "&inprop=url" +
-                "&pithumbsize=200"
+
+                "&format=json" +
+                "&inprop=thumbnail|url"
+
     }
 }

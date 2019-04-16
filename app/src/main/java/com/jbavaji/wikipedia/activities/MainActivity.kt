@@ -11,11 +11,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val exploreFragment: ExploreFragment = ExploreFragment()
+    private val exploreFragment: ExploreFragment
     private val historyFragment: HistoryFragment
     private val favouriteFragment: FavouriteFragment
 
     init {
+        exploreFragment = ExploreFragment()
         historyFragment = HistoryFragment()
         favouriteFragment = FavouriteFragment()
     }
@@ -28,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         when (item!!.itemId) {
             R.id.navigation_explore -> {
                 transcation.replace(R.id.fragment_container, exploreFragment)
-
             }
             R.id.navigation_favourite -> {
                 transcation.replace(R.id.fragment_container, favouriteFragment)

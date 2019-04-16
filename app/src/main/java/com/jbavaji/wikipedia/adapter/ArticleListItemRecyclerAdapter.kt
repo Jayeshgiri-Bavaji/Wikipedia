@@ -1,11 +1,12 @@
 package com.jbavaji.wikipedia.adapter
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.jbavaji.wikipedia.R
-import com.jbavaji.wikipedia.holder.CardHolder
 import com.jbavaji.wikipedia.holder.ListItemHolder
+import com.jbavaji.wikipedia.model.WikiPage
 
 
 /**
@@ -14,14 +15,18 @@ import com.jbavaji.wikipedia.holder.ListItemHolder
  * jayeshgiri.bavaji@synechron.com
  */
 
-class ArticleListItemRecyclerAdapter() : RecyclerView.Adapter<ListItemHolder>() {
+class ArticleListItemRecyclerAdapter(var context: Context) : RecyclerView.Adapter<ListItemHolder>() {
+
+    var currentResults: ArrayList<WikiPage> = ArrayList<WikiPage>()
 
     override fun getItemCount(): Int {
-        return 15 // temporary
+        return currentResults.size // temporary
     }
 
     override fun onBindViewHolder(holder: ListItemHolder?, position: Int) {
         // where update  our view
+        var page = currentResults[position]
+        holder?.updateWithPage(page, this.context)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ListItemHolder {

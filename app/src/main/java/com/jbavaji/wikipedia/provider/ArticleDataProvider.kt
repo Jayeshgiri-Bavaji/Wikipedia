@@ -1,7 +1,7 @@
 package com.jbavaji.wikipedia.provider
 
+import android.util.Log
 import com.github.kittinunf.fuel.core.FuelManager
-import com.github.kittinunf.fuel.core.Handler
 import com.github.kittinunf.fuel.core.ResponseDeserializable
 import com.github.kittinunf.fuel.httpGet
 import com.google.gson.Gson
@@ -21,11 +21,12 @@ class ArticleDataProvider {
     }
 
     fun search(term: String, skip: Int, take: Int, responseHandler: (result: WikiResult) -> Unit?) {
+        Log.d("JACK", Urls.getSearchUrl(term, skip, take))
         Urls.getSearchUrl(term, skip, take)
                 .httpGet()
                 .responseObject(WikipediaDeserialize()) { _, response, result ->
                         // do something with result
-                    if(response.httpStatusCode == 200){
+                    if(response.httpStatusCode != 200){
                         throw Exception("Unable to get Articles")
                     }
 
@@ -35,12 +36,13 @@ class ArticleDataProvider {
     }
 
     fun getRandom( take: Int, responseHandler: (result: WikiResult) -> Unit?) {
+        Log.d("JACK",Urls.getRandomUrl(take))
+
         Urls.getRandomUrl(take)
                 .httpGet()
                 .responseObject(WikipediaDeserialize()) { request, response, result ->
                     // do something with result
-
-                    if(response.httpStatusCode == 200){
+                    if(response.httpStatusCode != 200){
                         throw Exception("Unable to get Articles")
                     }
 

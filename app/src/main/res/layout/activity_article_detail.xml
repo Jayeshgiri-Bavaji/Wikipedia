@@ -19,15 +19,16 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <ProgressBar
+        android:id="@+id/page_progressbar"
+        android:layout_width="@dimen/app_progressbar_56dp"
+        android:layout_height="@dimen/app_progressbar_56dp" />
 
     <WebView
         android:id="@+id/article_detail_webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <ProgressBar
-        android:id="@+id/page_progressbar"
-        android:layout_width="@dimen/app_progressbar_56dp"
-        android:layout_height="@dimen/app_progressbar_56dp" />
+
     
 </LinearLayout>
